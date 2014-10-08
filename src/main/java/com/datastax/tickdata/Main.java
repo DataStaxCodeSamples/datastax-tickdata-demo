@@ -78,7 +78,7 @@ public class Main {
 			@Override
 			public void run() {
 				logger.info(new Date().toString() + "-Generated " + tickGenerator.getTicksGenerated() + " ticks");
-				logger.info("Messages left to send " + (queueTickData.size()));
+				logger.info("Sending " + (queueTickData.size()) + " messages");
 			}
 		}, 1, 5, TimeUnit.SECONDS);		
 	}

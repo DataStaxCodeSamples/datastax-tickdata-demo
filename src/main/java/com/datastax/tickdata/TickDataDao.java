@@ -128,17 +128,8 @@ public class TickDataDao {
 		}
 		
 		//Wait till we have everything back.
-		boolean wait = true;
-		while (wait) {
-			// start with getting out, if any results are not done, wait is
-			// true.
-			wait = false;
-			for (ResultSetFuture result : results) {
-				if (!result.isDone()) {
-					wait = true;
-					break;
-				}
-			}
+		for (ResultSetFuture future : results) {
+			future.getUninterruptibly();
 		}
 		
 		return;
